@@ -1,0 +1,68 @@
+<div class="robot" ng-controller="RobotResultsController as vm">
+    <div class="robot_slider" id="img-compare-container">
+        <div class="robot_slider_img m_robot" id="img1">
+            <img
+                src="{{ $IMG_PATH }}/img/_redesign/landings/robots/robot/robot.svg"
+                class="robot_slider_img_obj"
+            >
+        </div>
+        <div class="robot_slider_clipper" id="img-clipper" style="width: 50%;">
+            <div class="robot_slider_wrap">
+                <div class="robot_slider_img m_human" id="img2">
+                    <img
+                        src="{{ $IMG_PATH }}/img/_redesign/landings/robots/human/human.svg"
+                        class="robot_slider_img_obj"
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="robot_shadow2"></div>
+    </div>
+    <div class="robot_shadow"></div>
+    <div class="robot_logo">
+        <a href="/" title="Superjob">
+            <img src="{{ $IMG_PATH }}/img/_redesign/svg/newmainlogo_white.svg" class="robot_logo_img" alt="Superjob">
+        </a>
+    </div>
+    <div class="robot_center">
+        <h1 class="robot_center_h1" ng-cloak ng-if="vm.humanness < 50">Ой!</h1>
+        <h3 class="robot_center_h3" ng-cloak ng-if="vm.humanness < 50">
+            <span class="robot_center_h3_tb">Вероятность того, </span>
+            <span>что вашу работу доверят роботу </span>
+            <span>очень высока.</span>
+        </h3>
+        <div class="robot_result" ng-cloak ng-if="vm.humanness < 50">
+            <p>Если в течение года вы  не задумаетесь о повышении квалификации, вас ждут трудности при поиске новой работы.</p>
+            <p>Скорее всего где-то уже есть робот, который может сделать вашу работу за вас. И, может быть,  ему еще не доверят ее завтра,  но через год первые роботы встанут в строй.</p>
+            <p>Это значит, что в следующем году новые рабочие места уже не будут появляться, а через два года начнутся сокращения. Superjob рекомендует уже сегодня начать развивать вашу карьеру.</p>
+            <ol>
+                <li><a class="h_border_none" href="">Получите</a> дополнительное   образование в лучших вузах  страны.</li>
+                <li><a class="h_border_none" href="">Пройдите</a> курсы повышения   квалификации.</li>
+                <li><a class="h_border_none" href="">Освойте</a> новую IT-профессию.</li>
+            </ol>
+            <p>А как же друзья и близкие? Расскажите им о стремительно надвигающемся роботобудущем!</p>
+        </div>
+        <h1 class="robot_center_h1" ng-cloak ng-if="vm.humanness >= 50">Всё ОК</h1>
+        <h3 class="robot_center_h3" ng-cloak ng-if="vm.humanness >= 50">
+            <span>У вас все в порядке и роботы</span>
+            <span class="robot_center_h3_tb"> пока не наступают на пятки.</span>
+            <span class="robot_center_h3_tb"> Пока…</span>
+        </h3>
+        <div class="robot_result" ng-cloak ng-if="vm.humanness >= 50">
+            <p>Каждый год в&nbsp;мире автоматизируются миллионы рабочих процессов, и&nbsp;нет никакой гарантии, что роботы не&nbsp;вторгнутся  и в&nbsp;вашу профессию.</p>
+            <p>Не&nbsp;ждите, когда наступит роботизированное завтра,  &mdash; развивайте свою карьеру,  тогда вы&nbsp;будете незаменимы!</p>
+            <p>Что делать?</p>
+            <ol>
+                <li><a class="h_border_none" href="">Получите</a> дополнительное   образование в лучших вузах  страны.</li>
+                <li><a class="h_border_none" href="">Пройдите</a> курсы повышения   квалификации.</li>
+                <li><a class="h_border_none" href="">Освойте</a> новую IT-профессию.</li>
+            </ol>
+            <p>А как же друзья и близкие? Расскажите им о стремительно надвигающемся роботобудущем!</p>
+        </div>
+        <div class="robot_sharing">
+            {{ $sharing }}
+        </div>
+        <!--Тут нужно поставить правильную ссылку-->
+        <a class="robot_repeat" href="{{ next_page }}">Пройти тест еще раз</a>
+    </div>
+</div>

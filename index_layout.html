@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" class="m_touch_scroll" ng-app="mobile" prop-support>
+    <head>
+        <title>{{ $title }}</title>
+        <meta name="description" content="{{ $description }}"/>
+        <meta name="keywords" content="{{ $keywords }}"/>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+
+        <link rel="icon" href="{{ $favicon }}" type="image/x-icon">
+
+        {{ $linkTags }}
+
+        {{ linkersOutput }}
+
+        <meta name="apple-itunes-app" content="app-id=663226401{{ IF ios_in_app_url }}, app-argument=superjob://{{ ios_in_app_url }}{{ END }}">
+        <meta name="google-play-app" content="app-id=ru.superjob.client.android">
+        <meta name="msApplication-ID" content="80478749-a31e-4ced-92da-c73a322b3b71" />
+        <meta name="msApplication-PackageFamilyName" content="9nblggh08hjg" />
+        <meta name="author" content="SuperJob">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        {{ IF $windows }}
+        <meta name="msApplication-TileImage" content="//img.superjob.ru/img/mobile_app/logo-windows.gif" />
+        {{  ELSE }}
+        <link rel="apple-touch-icon" href="//img.superjob.ru/img/mobile_app/logo.gif">
+        {{ END }}
+        {{ IF android_app_link }}
+        <link rel="alternate" href="{{ android_app_link }}" />
+        {{ END }}
+        {{ $googleAnalytics }}
+        <script>
+            dataLayer = [];
+        </script>
+    </head>
+
+    <body>
+{{ $googleTag }}
+{{ $yandexMetric }}
+{{ $jsBodyBegin }}
+{{ $webstat }}
+{{ $counters_top }}
+{{ $openstatCounter }}
+        <!-- page -->
+        <div class="l_page" ng-class="{h_overflow_hidden: showMenu}" ng-controller="mainCtrl">
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+            <!-- header -->
+            <div class="l_header header" header>
+
+                <a target="_self" href="/" class="header_logo header_ico"></a>
+
+                <div class="header_menu" ng-click="toggleMenu()" id="headerMenu">
+                    <i class="menu_ico m_menu header_menu_ico" ng-class="{m_active: showMenu}"></i>
+                </div>
+
+            </div>
+            <!-- /header -->
+
+            <!-- menu -->
+
+
+                <div class="MobileLayout_menu" ng-cloak ng-class="{m_active: showMenu}">
+
+                    <button type="button" ng-click="toggleMenu()" class="MobileLayout_close">
+                        <i class="MobileLayout_close_ico" ng-class="{m_active: showMenu}"></i>
+                    </button>
+
+                    <div class="MobileLayout_menu_body">
+
+                    {{ IF isGuest }}
+                        <div class="MobileLayout_btn_wr">
+                            <a class="sj_btn m_transparent m_stretch MobileLayout_menu_btn" target="_self" href="{{ loginUrl }}">
+                                Вход и регистрация
+                            </a>
+                        </div>
+
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.vacancy_search.url }}">
+                            {{ burger.vacancy_search.text }}
+                        </a>
+
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.resume_search.url }}">
+                            {{ burger.resume_search.text }}
+                        </a>
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.favorite_vacancies.url }}">
+                            {{ burger.favorite_vacancies.text }}
+                        </a>
+
+                        <div class="MobileLayout_menu_line"></div>
+
+                        <div class="MobileLayout_menu_subtitle">
+                            Соискателям
+                        </div>
+
+                        <a class="MobileLayout_menu_link m_child" href="{{ burger.resume_create.url }}" data-event-label="create_resume_burger">
+                            {{ burger.resume_create.text }}
+                        </a>
+
+                        <a class="MobileLayout_menu_link m_child" target="_self" href="{{ burger.cv_mobile_application.url }}">
+                            {{ burger.cv_mobile_application.text }}
+                        </a>
+
+                        <div class="MobileLayout_menu_line"></div>
+
+                        <div class="MobileLayout_menu_subtitle">
+                            Работодателям
+                        </div>
+
+                        <a class="MobileLayout_menu_link m_child" href="/hr/mobile-registration/?returnUrl=/hr/vacancy/create" data-event-label="create_vacancy_burger">
+                            {{ burger.vacancy_create.text }}
+                        </a>
+
+                        <a class="MobileLayout_menu_link m_child" href="{{ newMobile.tariffs }}" data-event-label="create_vacancy_burger">
+                            Тарифы
+                        </a>
+
+                        <a class="MobileLayout_menu_link m_child" target="_self" href="{{ burger.traineeship_create.url }}">
+                            {{ burger.traineeship_create.text }}
+                        </a>
+
+                        <a class="MobileLayout_menu_link m_child" target="_self" href="{{ burger.hr_mobile_application.url }}">
+                            {{ burger.hr_mobile_application.text }}
+                        </a>
+
+                        <div class="MobileLayout_menu_line"></div>
+
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.feedback.url }}">
+                            {{ burger.feedback.text }}
+                        </a>
+
+                    {{ END }}
+
+                    {{ IF isRegUser }}
+
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.vacancy_search.url }}">
+                        {{ burger.vacancy_search.text }}
+                        </a>
+
+                        {{ IF showResumeListButton }}
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.resume_list.url }}">
+                            {{ burger.resume_list.text }}
+                        </a>
+                        {{ END }}
+
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.favorite_vacancies.url }}">
+                            {{ burger.favorite_vacancies.text }}
+                        </a>
+
+                        <div class="MobileLayout_btn_wr">
+                            <a class="sj_btn m_transparent m_stretch MobileLayout_menu_btn" target="_self" href="{{ burger.resume_create.url }}">
+                                {{ burger.resume_create.text }}
+                            </a>
+                        </div>
+
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.cv_mobile_application.url }}">
+                            {{ burger.cv_mobile_application.text }}
+                        </a>
+
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ burger.feedback.url }}">
+                            {{ burger.feedback.text }}
+                        </a>
+
+                        <a class="MobileLayout_menu_link" target="_self" href="{{ logoutUrl }}">
+                            Выйти
+                        </a>
+
+                        <div class="MobileLayout_menu_line"></div>
+
+                        <div class="MobileLayout_menu_subtitle">
+                            Работодателям
+                        </div>
+
+                        <a href="/hr/mobile-registration/?returnUrl=/hr/vacancy/create" class="MobileLayout_menu_link m_child">
+                            {{ burger.vacancy_create.text }}
+                        </a>
+
+                        <a href="{{ burger.resume_search.url }}" class="MobileLayout_menu_link m_child">
+                            {{ burger.resume_search.text }}
+                        </a>
+
+                        <div class="MobileLayout_menu_line"></div>
+
+                    {{ END }}
+
+                        <a href="{{ WWW_SERVER_PATH }}/info/user_agreement.html" class="MobileLayout_menu_link">
+                            Правила работы с базой данных резюме и вакансий
+                        </a>
+
+                        <a href="{{ desktop_path }}{{ desktop_path_extra_params }}" class="MobileLayout_menu_link">
+                            Перейти на полную версию
+                        </a>
+                    </div>
+                </div>
+
+                <!-- /menu -->
+
+            <!-- content -->
+            <div class="l_content">
+
+                <div id="content">
+                    {{ content }}
+                </div>
+
+                <div id="layers">
+                    <div class="layer m_loader" loader>
+                        <span class="loader_txt">
+                            Загрузка
+                        </span>
+                        <div class="loader">
+                            <span class="loader_bar"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- footer -->
+                <div class="l_footer">
+
+                    <div class="footer">
+                        <div class="footer_copyright h_color_gray">&copy; 2000-{{ year }} Superjob</div>
+
+                        <div class="footer_links h_color_gray_dark">
+
+                            <span class="footer_link m_active"><b>Мобильный</b></span>
+                            |
+                            <a href="{{ desktop_path }}{{ desktop_path_extra_params }}" class="footer_link">Полный</a>
+                            {{ IF isGuest }}
+                            |
+                            <a href="{{ mobileHrUrl }}" target="_blank" class="footer_link">Работодателям</a>
+                            {{ END }}
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /footer -->
+
+            </div>
+            <!-- /content -->
+
+        </div>
+        <!-- /page -->
+    <script type="text/javascript">
+            angular.module('sjApi').run(['apiConfig', 'apiPostConfig', function (apiConfig, apiPostConfig) {
+                apiConfig.API_URL = '{{ API_SERVER_PATH }}/';
+                apiPostConfig.API_URL = '{{ API_SERVER_PATH }}/'.replace('://api.', '://services.');
+            }]);
+            angular.module('mobile').run(['cTown', function(cTown) {
+                cTown.init({{ town }});
+            }]);
+            {{ IF show_smart_banner }}
+            $(function() { $.smartbanner({
+                title: 'Поиск работы Superjob', // What the title of the app should be in the banner (defaults to <title>)
+                price: 'Бесплатно', // Price of the app
+                appStoreLanguage: 'ru', // Language code for App Store
+                inAppStore: 'в App Store', // Text of price for iOS
+                inGooglePlay: 'в Google Play', // Text of price for Android
+                inWindowsStore: 'в Windows Store', //Text of price for Windows
+                button: 'Открыть', // Text for the install button
+                force: null, // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
+                hideOnInstall: true, // Hide the banner after "VIEW" is clicked.
+                layer: true, // Display as overlay layer or slide down the page
+                iOSUniversalApp: false, // If the iOS App is a universal app for both iPad and iPhone, display Smart Banner to iPad users, too.
+                appendToSelector: 'body', //Append the banner to a specific selector
+                setCookie: function(name) {
+                    $.ajax({
+                        url: '{{ $close_smartbanner_url }}'.replace('placeholder', name),
+                        type: 'get',
+                        success: function(){
+                        },
+                        error: function(){
+                            //window.location.reload();
+                        }
+                    });
+                },
+                getCookie: function() { return false; }
+            }) } )
+            {{ END }}
+        </script>
+    </body>
+</html>

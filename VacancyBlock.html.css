@@ -1,0 +1,42 @@
+.VacancyBlock {
+    background-color: #fff;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    height: 132px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 0 0 0 140px;
+    position: relative;
+    white-space: nowrap;
+}
+.VacancyBlock::before {
+    background: url('/img/_redesign/landings/robots/banner/bg.png?21022017') no-repeat right center;
+    width: 593px;
+    height: 132px;
+    background-size: cover;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 568px;
+    top: 0;
+}
+.VacancyBlock_inner {
+    padding-bottom: 12px;
+    padding-top: 18px;
+}
+.VacancyBlock_inner_text {
+    font-size: 18px;
+    line-height: normal;
+    margin-bottom: 6px;
+}
+.VacancyBlock::after {
+    background: url('/img/_redesign/landings/robots/banner/robot.png?21022017') no-repeat right center;
+    background-size: cover;
+    content: '';
+    display: block;
+    height: 127px;
+    width: 250px;
+    position: absolute;
+    left: 570px;
+    bottom: 0;
+}

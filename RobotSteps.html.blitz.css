@@ -1,0 +1,245 @@
+.robotSteps {
+    position: relative;
+    width: 100%;
+    padding: 24px;
+    height: 100%;
+    margin-bottom: -14px;
+}
+.no-touch .robotSteps {
+    min-height: 100vh;
+}
+.robotSteps_wr {
+    min-height: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+.robotSteps_wr > div {
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+}
+.robotSteps:after {
+    content: '';
+    display: block;
+    height: 14px;
+}
+.robotSteps_logo {
+    text-align: center;
+    margin-bottom: 23px;
+    margin-top: -8px;
+    height: 27px;
+}
+.robotSteps_logo_img {
+    width: 100px;
+    height: 27px;
+}
+@media (min-width: 636px) {
+    .robotSteps_logo {
+        height: 30px;
+        margin-bottom: 40px;
+        text-align: left;
+        z-index: 4;
+    }
+    .robotSteps_logo_img {
+        width: 110px;
+        height: 30px;
+    }
+}
+@media (min-width: 1440px) {
+    .robotSteps_logo {
+        margin-bottom: 76px;
+    }
+}
+.robotSteps_current {
+    width: 272px;
+    margin: 0 auto 36px;
+}
+.robotSteps_current_heads {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+}
+.robotSteps_current_human {
+    width: 55px;
+    height: 44px;
+    background: url('/img/_redesign/landings/robots/human/head.png') no-repeat center bottom;
+    background-size: cover;
+}
+.robotSteps_current_robot {
+    width: 39px;
+    height: 60px;
+    background: url('/img/_redesign/landings/robots/robot/head.png') no-repeat center bottom;
+    background-size: cover;
+}
+.robotSteps_current_progressbar {
+    background-color: #d33b7c;
+    height: 14px;
+    margin-bottom: 6px;
+    margin-top: 12px;
+    width: 100%;
+}
+.robotSteps_current_progressbar_trangle {
+    background-color: #88d1da;
+    height: 14px;
+    width: 0%;
+    -o-transition: width 1s;
+    transition: width 1s;
+    position: relative;
+}
+.robotSteps_current_progressbar_trangle::before {
+    position: absolute;
+    right: -6px;
+    top: -9px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #31454c;
+}
+.robotSteps_current_text {
+    color: #969696;
+    font-size: 13px;
+    text-align: center;
+    min-height: 2em;
+}
+.robotSteps_center {
+    width: 272px;
+    margin: 0 auto;
+    padding-bottom: 14px;
+}
+@media (min-width: 636px) {
+    .robotSteps_center {
+        top: 260px;
+    }
+}
+.robotSteps_question {
+    font-size: 24px;
+    font-family: Roboto;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: normal;
+    margin-bottom: 36px;
+}
+.robotSteps_answer {
+    font-size: 15px;
+    position: relative;
+}
+.robotSteps_answer_checkbox {
+    position: relative;
+    top: 1px;
+}
+.no-touch .robotSteps_answer_checkbox {
+    top: -1px;
+}
+.robotSteps_answer_row {
+    display: block;
+}
+.robotSteps_answer_row + .robotSteps_answer_row {
+    margin-top: 18px;
+}
+.robotSteps_answer_under {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    color: #969696;
+    padding-top: 12px;
+    position: relative;
+}
+.robotSteps_answer_under::before,
+            .robotSteps_answer_under::after {
+    background-color: #969696;
+    content: '';
+    height: 6px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+}
+.robotSteps_answer_under::before {
+    left: 26px;
+}
+.robotSteps_answer_under::after {
+    right: 26px;
+}
+.robotSteps_answer_under div:last-child {
+    text-align: right;
+}
+/* Элементы формы */
+.robotSteps_btn_group_item.robotSteps_btn_group_item {
+    width: 20%;
+    background: transparent;
+    border-color: #969696;
+}
+.robotSteps_input {
+    background-color: transparent;
+    padding: 6px 0;
+    border-width: 0 0 1px;
+    border-radius: 0;
+}
+.no-touch  .robotSteps_input {
+    width: 222px;
+    padding: 6px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+.robotSteps_btn {
+    display: none;
+}
+.no-touch .robotSteps_btn,
+    .no-touch .robotSteps_btn:hover,
+    .no-touch .robotSteps_btn:focus,
+    .no-touch .robotSteps_btn:visited {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.robotSteps_footer_progressbar {
+    position: relative;
+    width: 100%;
+    height: 14px;
+    background-color: #f2f2f2;
+}
+.robotSteps_footer_progressbar_done {
+    background-color: #157efb;
+    width: 0;
+    height: 14px;
+    -webkit-animation: width .5s ease-in;
+         -o-animation: width .5s ease-in;
+            animation: width .5s ease-in;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.robotSteps_footer_progressbar_done::after {
+    background: -o-repeating-linear-gradient(315deg, #157efb, #157efb 3px, transparent 3px, transparent 5px);
+    background: repeating-linear-gradient(135deg, #157efb, #157efb 3px, transparent 3px, transparent 5px);
+    content: '';
+    width: 32px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    right: -32px;
+}

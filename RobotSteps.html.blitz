@@ -1,0 +1,232 @@
+<div class="robotSteps_wr" ng-controller="RobotStepsController as vm">
+    <div class="robotSteps">
+        <div class="robotSteps_logo">
+            <a href="/">
+                <img src="{{ $IMG_PATH }}/img/_redesign/svg/logo.svg" class="robotSteps_logo_img">
+            </a>
+        </div>
+        <div class="robotSteps_current">
+            <div class="robotSteps_current_heads">
+                <div class="robotSteps_current_human"></div>
+                <div class="robotSteps_current_robot"></div>
+            </div>
+            <div class="robotSteps_current_progressbar">
+                <div class="robotSteps_current_progressbar_trangle" style="width: {% vm.humanness %}%"></div>
+            </div>
+            <div class="robotSteps_current_text" ng-if="vm.humanness > 50">
+                Можно подумать как сломать систему
+            </div>
+            <div class="robotSteps_current_text" ng-cloak ng-if="vm.humanness === 50">
+                Пока неоднозначно
+            </div>
+            <div class="robotSteps_current_text" ng-cloak ng-if="vm.humanness < 50">
+                А&nbsp;вы&nbsp;хороши, хоть вставляй  в&nbsp;роботуловище
+            </div>
+        </div>
+
+        <!--Вопрос 1-->
+        {{ IF step_number == 1 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Давайте начнем<br>  с простого :-) Вы робот?</div>
+            <div class="robotSteps_answer" ng-click="vm.confirmAnswer($event)">
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="1"> Да
+                </label>
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="2"> Нет
+                </label>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 2-->
+        {{ IF step_number == 2 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Кем вы сейчас работаете?</div>
+            <div class="robotSteps_answer">
+                <label class="robotSteps_answer_row">
+                    <input class="sj_input robotSteps_input" type="text" ng-model="vm.answerText" placeholder="Ваша должность"/>
+                </label>
+                <button
+                    class="sj_btn m_blue robotSteps_btn"
+                    ng-click="vm.confirmAnswer($event)"
+                    data-text="{% vm.answerText %}"
+                    data-weight="0"
+                >ОК</button>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 3-->
+        {{ IF step_number == 3 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Сколько еще планируете работать? Пенсия далеко?</div>
+            <div class="robotSteps_answer" ng-click="vm.confirmAnswer($event)">
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="-1"> Немного. Пенсия уже поджимает
+                </label>
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="0"> Пожалуй, поработаю еще лет 10
+                </label>
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="1"> Пенсия? Что такое пенсия?
+                </label>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 4 -->
+        {{ IF step_number == 4 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Сталкиваетесь&nbsp;ли вы  в процессе работы  с задачами, в&nbsp;которых нет однозначно верного решения?</div>
+            <div class="robotSteps_answer" ng-click="vm.confirmAnswer($event)">
+                <div class="sj_btn_group m_blue m_stretch">
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-2">1</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-1">2</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="0">3</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="1">4</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="2">5</div>
+                </div>
+                <div class="robotSteps_answer_under">
+                    <div>Однозначно нет</div>
+                    <div>Однозначно да</div>
+                </div>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 5 -->
+        {{ IF step_number == 5 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Какая доля однотипных задач решается вами в&nbsp;течение дня?</div>
+            <div class="robotSteps_answer">
+                <div class="sj_btn_group m_blue m_stretch" ng-click="vm.confirmAnswer($event)">
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-2">1</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-1">2</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="0">3</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="1">4</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="2">5</div>
+                </div>
+                <div class="robotSteps_answer_under">
+                    <div>Нет однотипных задач</div>
+                    <div>Все задачи однотипные</div>
+                </div>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 6 -->
+        {{ IF step_number == 6 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Необходимо ли в ходе вашей работы регулярно спорить и отстаивать свою точку зрения?</div>
+            <div class="robotSteps_answer" ng-click="vm.confirmAnswer($event)">
+                <div class="sj_btn_group m_blue m_stretch">
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-2">1</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-1">2</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="0">3</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="1">4</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="2">5</div>
+                </div>
+                <div class="robotSteps_answer_under">
+                    <div>Однозначно нет</div>
+                    <div>Однозначно да</div>
+                </div>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 7-->
+        {{ IF step_number == 7 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">У вас есть подчиненные?</div>
+            <div class="robotSteps_answer" ng-click="vm.confirmAnswer($event)">
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="1"> Да
+                </label>
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="-1"> Нет
+                </label>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 8 -->
+        {{ IF step_number == 8 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Насколько сильно от вашей работы зависит психологическое состояние, жизнь и здоровье других людей?</div>
+            <div class="robotSteps_answer" ng-click="vm.confirmAnswer($event)">
+                <div class="sj_btn_group m_blue m_stretch">
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-2">1</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-1">2</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="0">3</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="1">4</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="2">5</div>
+                </div>
+                <div class="robotSteps_answer_under">
+                    <div>Не зависит</div>
+                    <div>Сильно зависит</div>
+                </div>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 9-->
+        {{ IF step_number == 9 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Приходится ли вам в ходе работы создавать что-то, чего раньше не было (например, музыкальное или литературное произведение)?</div>
+            <div class="robotSteps_answer" ng-click="vm.confirmAnswer($event)">
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="1"> Да
+                </label>
+                <label class="robotSteps_answer_row">
+                    <input type="radio" name="choice" class="robotSteps_answer_checkbox" data-weight="-1"> Нет
+                </label>
+            </div>
+        </div>
+        {{ END }}
+
+        <!--Вопрос 10 -->
+        {{ IF step_number == 10 }}
+        <div class="robotSteps_center">
+            <div class="robotSteps_question">Чувствуете ли вы себя роботом на работе?</div>
+            <div class="robotSteps_answer" ng-click="vm.confirmAnswer($event)">
+                <div class="sj_btn_group m_blue m_stretch">
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-2">1</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="-1">2</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="0">3</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="1">4</div>
+                    <div class="sj_btn_group_item robotSteps_btn_group_item" data-weight="2">5</div>
+                </div>
+                <div class="robotSteps_answer_under">
+                    <div>Скорее нет</div>
+                    <div>Скорее да</div>
+                </div>
+            </div>
+        </div>
+        {{ END }}
+
+        <!-- // Основной контент который будет меняться-->
+    </div>
+    <div class="robotSteps_footer_progressbar">
+        <div class="robotSteps_footer_progressbar_done" style="width: {% vm.progressMade %}%"></div>
+    </div>
+</div>
+<div style="display: none;">
+    <h2>Номер шага {{ step_number }}</h2>
+    <p>Тип шага: {{ step_type }}</p>
+    <div>{{ IF previous_page }} <a href="{{ previous_page }}">предыдущая страница</a>{{ END }}</div>
+    <div><a href="{{ current_page }}">текущая страница</a></div>
+    <div>{{ IF next_page }}<a href="{{ next_page }}">следующая страница</a>{{ END }}</div>
+</div>
+
+<script>
+    (function () {
+        // Сохраняем URL следующего вопроса.
+        var nextQuestionUrl = '{{ next_page }}';
+        angular.module('angie').constant('nextQuestionUrl', nextQuestionUrl);
+
+        // Уникальный номер текущего вопроса.
+        var currentQuestionId = {{ step_number }} || 1;
+        angular.module('angie').constant('currentQuestionId', currentQuestionId);
+    })();
+</script>

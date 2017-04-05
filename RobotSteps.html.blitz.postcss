@@ -1,0 +1,266 @@
+@import '/css/vars.css';
+
+$color-progress-bar: #157efb;
+$color-robot: #d33b7c;
+$color-human: #88d1da;
+
+.robotSteps {
+    position: relative;
+    width: 100%;
+    padding: 24px;
+    height: 100%;
+    margin-bottom: -14px;
+
+    .no-touch & {
+        min-height: 100vh;
+    }
+
+    &_wr {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_wr > div {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        height: 14px;
+    }
+
+    &_logo {
+        text-align: center;
+        margin-bottom: 23px;
+        margin-top: -8px;
+        height: 27px;
+    }
+
+    &_logo_img {
+        width: 100px;
+        height: 27px;
+    }
+
+    @media (min-width: 636px) {
+        &_logo {
+            height: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+            z-index: 4;
+        }
+
+        &_logo_img {
+            width: 110px;
+            height: 30px;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        &_logo {
+            margin-bottom: 76px;
+        }
+    }
+
+    &_current {
+        width: 272px;
+        margin: 0 auto 36px;
+
+        &_heads {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        &_human {
+            width: 55px;
+            height: 44px;
+            background: url('/img/_redesign/landings/robots/human/head.png') no-repeat center bottom;
+            background-size: cover;
+        }
+
+        &_robot {
+            width: 39px;
+            height: 60px;
+            background: url('/img/_redesign/landings/robots/robot/head.png') no-repeat center bottom;
+            background-size: cover;
+        }
+
+        &_progressbar {
+            background-color: $color-robot;
+            height: 14px;
+            margin-bottom: 6px;
+            margin-top: 12px;
+            width: 100%;
+        }
+
+        &_progressbar_trangle {
+            background-color: $color-human;
+            height: 14px;
+            width: 0%;
+            transition: width 1s;
+            position: relative;
+        }
+
+        &_progressbar_trangle::before {
+            position: absolute;
+            right: -6px;
+            top: -9px;
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #31454c;
+        }
+
+        &_text {
+            color: $color-gray;
+            font-size: 13px;
+            text-align: center;
+            min-height: 2em;
+        }
+    }
+
+    &_center {
+        width: 272px;
+        margin: 0 auto;
+        padding-bottom: 14px;
+    }
+
+    @media (min-width: 636px) {
+        &_center {
+            top: 260px;
+        }
+    }
+
+    &_question {
+        font-size: 24px;
+        font-family: Roboto;
+        font-weight: 300;
+        color: rgba(0, 0, 0, 0.87);
+        line-height: normal;
+        margin-bottom: 36px;
+    }
+
+    &_answer {
+        font-size: 15px;
+        position: relative;
+
+        &_checkbox {
+            position: relative;
+            top: 1px;
+        }
+
+        .no-touch &_checkbox {
+            top: -1px;
+        }
+
+        &_row {
+            display: block;
+        }
+
+        &_row + &_row {
+            margin-top: 18px;
+        }
+
+        &_under {
+            display: flex;
+            justify-content: space-between;
+            color: $color-gray;
+            padding-top: 12px;
+            position: relative;
+
+            &::before,
+            &::after {
+                background-color: $color-gray;
+                content: '';
+                height: 6px;
+                position: absolute;
+                top: 0;
+                width: 1px;
+            }
+
+            &::before {
+                left: 26px;
+            }
+
+            &::after {
+                right: 26px;
+            }
+
+            div:last-child {
+                text-align: right;
+            }
+        }
+    }
+
+    /* Элементы формы */
+    &_btn_group_item&_btn_group_item {
+        width: 20%;
+        background: transparent;
+        border-color: $color-gray;
+     }
+
+    &_input {
+        background-color: transparent;
+        padding: 6px 0;
+        border-width: 0 0 1px;
+        border-radius: 0;
+    }
+
+
+    .no-touch  &_input {
+        width: 222px;
+        padding: 6px;
+        border-radius: 3px;
+        border-width: 1px;
+    }
+
+    &_btn {
+        display: none;
+    }
+
+
+    .no-touch &_btn,
+    .no-touch &_btn:hover,
+    .no-touch &_btn:focus,
+    .no-touch &_btn:visited {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &_footer_progressbar {
+        position: relative;
+        width: 100%;
+        height: 14px;
+        background-color: $color-background;
+
+        &_done {
+            background-color: $color-progress-bar;
+            width: 0;
+            height: 14px;
+            animation: width .5s ease-in;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        &_done::after {
+            background: repeating-linear-gradient(135deg, $color-progress-bar, $color-progress-bar 3px, transparent 3px, transparent 5px);
+            content: '';
+            width: 32px;
+            height: 100%;
+            display: block;
+            position: absolute;
+            right: -32px;
+        }
+    }
+}

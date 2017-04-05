@@ -1,0 +1,4 @@
+js_file /yii/protected/views/robot/js/constants/local-storage/local-storage.constant.js
+js_file /yii/protected/views/robot/js/constants/answers-storage-name/answers-storage-name.constant.js
+js_file /yii/protected/views/robot/js/constants/balance-value-storage-name/balance-value-storage-name.constant.js
+js_file /yii/protected/views/robot/js/factories/human-robot-model/human-robot-model.factory.js

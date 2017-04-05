@@ -1,0 +1,571 @@
+$gradientTop: #1e0c9e;
+$gradientBottomHuman: #4faabc;
+$gradientBottomRobot: #bc4790;
+
+.robot {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* bg slider */
+
+.robot_slider {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+    bottom: 20px;
+}
+
+.robot_slider_clipper {
+    width: 50%;
+    height: 100vh;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.robot_slider_wrap {
+    min-width: 100vw;
+    min-height: 100vh;
+    height: 100vh;
+    width: auto;
+    position: relative;
+    z-index: 3;
+    visibility: visible;
+}
+
+.robot_slider_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.m_human.robot_slider_img {
+    background-image: url('/img/_redesign/landings/robots/human/bg.png'), linear-gradient($gradientTop, $gradientBottomHuman);
+}
+
+.m_robot.robot_slider_img {
+    background-image: url('/img/_redesign/landings/robots/robot/bg.png'), linear-gradient($gradientTop, $gradientBottomRobot);
+}
+
+.robot_slider_img_obj {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    height: 80%;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Landscape */
+@media only screen
+    and (orientation: landscape)
+    and (max-height: 500px) {
+    .robot_slider_img_obj {
+        bottom: 20px;
+    }
+}
+
+@media only screen
+    and (min-height: 750px) {
+    .robot_slider_img_obj {
+        bottom: 46px;
+    }
+}
+
+@media only screen
+    and (orientation: landscape)
+    and (min-height: 768px) {
+    .robot_slider_img_obj {
+        bottom: 46px;
+        height: 70%;
+    }
+}
+
+@media only screen
+    and (orientation: portrait)
+    and (min-height: 1024px) {
+    .robot_slider_img_obj {
+        bottom: 64px;
+        height: 76%;
+    }
+}
+
+@media only screen
+    and (min-height: 1000px)
+    and (min-width: 1900px) {
+    .robot_slider_img_obj {
+        bottom: 85px;
+    }
+}
+
+
+.robot_shadow {
+    background: linear-gradient(to bottom, rgb(4, 2, 74), transparent);
+    opacity: 0.7;
+    height: 110px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+}
+
+/* tablets */
+@media (min-width: 636px) {
+    .robot_shadow {
+        height: 230px;
+    }
+}
+
+/* desktop */
+@media (min-width: 1440px) {
+    .robot_shadow {
+        height: 270px;
+    }
+}
+
+@media only screen and (max-height: 500px) {
+    .robot_shadow {
+        height: 140px;
+    }
+}
+
+/* logo */
+
+.robot_logo {
+    text-align: center;
+    padding-top: 16px;
+    margin-bottom: 10px;
+    z-index: 6; /* чтобы быть выше robot_shadow */
+    height: 45px;
+    position: relative;
+}
+
+.robot_logo_img {
+    width: 100px;
+    height: 27px;
+}
+
+/* tablets */
+@media (min-width: 636px) {
+
+    .robot_logo {
+        height: auto;
+        margin-bottom: 18px;
+        padding-left: 24px;
+        padding-top: 24px;
+        text-align: left;
+    }
+
+    .robot_logo_img {
+        width: 110px;
+        height: 30px;
+    }
+
+}
+
+@media (min-width: 1440px) {
+    .robot_logo {
+        margin-bottom: 66px;
+    }
+}
+
+/* container */
+
+.robot_center {
+    text-align: center;
+    padding: 0 14px;
+    width: 100%;
+}
+
+.robot_center_h1 {
+    position: relative;
+    margin: 0;
+    z-index: 6;
+}
+
+.robot_center_h1 > span {
+    font-weight: 700;
+    color: #fff;
+    line-height: normal;
+    text-shadow: 0 0 5px #000;
+    display: inline-block;
+    font-size: 4vh;
+}
+
+.robot_center_h3 {
+    position: relative;
+    margin-top: 12px;
+    margin-bottom: 0;
+    z-index: 6;
+}
+
+.robot_center_h3 > span {
+    display: block;
+    color: #fff;
+    font-size: 3vh;
+    font-weight: 400;
+    line-height: normal;
+    text-shadow: 0 0 5px #000;
+}
+
+/* tablets */
+@media (min-width: 636px) {
+    .robot_center {
+        text-align: center;
+        margin: 0 auto;
+        width: 636px;
+    }
+
+    .robot_center_h1 > span {
+        font-weight: 700;
+        font-size: 48px;
+        display: block;
+        letter-spacing: 1px;
+    }
+
+    .robot_center_h3 span {
+        display: inline;
+        font-size: 18px;
+    }
+}
+
+/* desktop */
+@media (min-width: 1440px) {
+    .robot_center {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .robot_center_h1 > span {
+        font-size: 82px;
+        display: inline-block;
+        letter-spacing: 1px;
+    }
+
+    .robot_center_h3 {
+        margin-top: 18px;
+    }
+
+    .robot_center_h3 > span {
+        font-size: 20px;
+    }
+}
+
+
+/* Landscape 0 - 320 height */
+@media only screen
+    and (orientation: landscape)
+    and (max-height: 500px) {
+
+    .robot_logo {
+        margin-bottom: 6px;
+    }
+
+    .robot_center_h1 > span {
+        display: inline-block;
+        font-size: 4vw;
+    }
+
+    .robot_center_h3 {
+        margin-top: 0;
+    }
+}
+
+/* Landscape 0 - 500 height*/
+@media only screen
+    and (orientation: landscape)
+    and (max-height: 500px) {
+
+    .robot_logo {
+        margin-bottom: 6px;
+    }
+
+    .robot_center_h1 > span {
+        display: inline-block;
+        font-size: 4vw;
+    }
+
+    .robot_center_h3 {
+        margin-top: 0;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (orientation: landscape) {
+
+    .m_sharing.robot_center_h3 {
+        display: none;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 540px)
+  and (orientation: landscape) {
+
+    .robot_center_h3 {
+        display: block;
+    }
+
+    .robot_center_h3 > span {
+        display: inline-block;
+    }
+}
+
+
+/* buttons */
+.robot_center_button_list {
+    position: absolute;
+    bottom: 68px;
+    width: 100%;
+    left: 0;
+    z-index: 5;
+}
+
+.robot_center_button {
+    display: block;
+    height: 44px;
+    width: 100%;
+    max-width: 292px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+.robot_center_button + .robot_center_button {
+    margin-top: 10px;
+}
+
+.m_test.robot_center_button {
+    background-color: rgba(10, 10, 10, 0.8);
+    border: solid 3px #fff;
+    color: #fff;
+}
+
+.m_sharing.robot_center_button {
+    background-color: rgba(253, 254, 255, 0.8);
+    border: solid 3px #2e3133;
+    color: #2e3133;
+}
+
+/* tablets */
+@media (min-width: 636px) {
+
+    .robot_center_button_list {
+        position: absolute;
+        bottom: 100px;
+        width: 350px;
+        left: 50%;
+        margin-left: -175px;
+    }
+
+    .robot_center_button {
+        height: 53px;
+        max-width: 350px;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 50px;
+    }
+
+}
+
+/* desktop */
+@media (min-width: 1440px) {
+
+    .robot_center_button_list {
+        bottom: 271px;
+    }
+
+}
+
+@media only screen
+    and (orientation: landscape)
+    and (max-height: 500px) {
+
+    .robot_center_button_list {
+        bottom: 60px;
+    }
+
+}
+
+
+/* sharing */
+
+.robot_center_sharing {
+    background: #fff;
+    position: absolute;
+    bottom: 52px;
+    left: 12px;
+    right: 12px;
+    padding: 12px 12px 6px;
+    z-index: 5;
+}
+
+.robot_center_sharing_close {
+    background: url('/img/_redesign/landings/robots/close.svg') no-repeat center center;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.robot_center_sharing_text {
+    font-size: 16px;
+    padding-top: 32px;
+}
+
+.robot_center_sharing_counters {
+    margin-top: 16px;
+    text-align: center;
+}
+
+/* tablets */
+@media (min-width: 636px) {
+
+    .robot_center_sharing {
+        bottom: 100px;
+        left: 50%;
+        margin-left: -340px;
+        padding: 18px;
+        right: auto;
+        width: 680px;
+    }
+
+    .robot_center_sharing_close {
+        top: 16px;
+        right: 16px;
+    }
+
+    .robot_center_sharing_text {
+        font-size: 15px;
+        padding-top: 0;
+    }
+
+    .robot_center_sharing_counters {
+        margin-top: 18px;
+    }
+
+}
+
+/* desktop */
+@media (min-width: 1440px) {
+
+    .robot_center_sharing {
+        bottom: 200px;
+    }
+
+    .robot_center_sharing_text {
+        font-size: 20px;
+        padding-top: 0;
+    }
+
+}
+
+/* Landscape iphone 4 320x480 */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .robot_center_sharing_text {
+        font-size: 1em;
+    }
+}
+
+@media only screen
+    and (orientation: landscape)
+    and (max-height: 500px) {
+    .robot_center_sharing {
+        bottom: 52px;
+    }
+}
+
+/* running line */
+
+.robot_running {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.87);
+}
+
+.robot_running_urgent {
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    width: 85px;
+    height: 20px;
+    background-color: rgba(208, 2, 27, 0.87);
+    /* Skew */
+    transform: skew(135deg);
+}
+
+.robot_running_urgent_text {
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    width: 85px;
+    height: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    line-height: 21px;
+}
+
+.robot_running_line {
+    height: 20px;
+    list-style-type: none;
+    margin: 0;
+    white-space: nowrap;
+    display: inline-block;
+    animation: scroll 25s linear infinite;
+}
+
+.robot_running_line > li {
+    color: #fff;
+    display: inline;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    line-height: 21px;
+}
+
+.robot_running_line > li::before {
+    content: '/';
+    display: inline-block;
+    margin: 0 12px 0 10px;
+}
+
+.robot_running_line > li:first-child::before {
+    content: '';
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(100vw, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}

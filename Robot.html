@@ -1,0 +1,56 @@
+<div class="robot" oncoming-image>
+    <div class="robot_slider" id="img-compare-container">
+        <div class="robot_slider_img m_robot" id="img1">
+            <img
+                src="{{ $IMG_PATH }}/img/_redesign/landings/robots/robot/robot.svg"
+                class="robot_slider_img_obj"
+            >
+        </div>
+        <div class="robot_slider_clipper" id="img-clipper" style="width: 50%;" oncoming-image-target>
+            <div class="robot_slider_wrap">
+                <div class="robot_slider_img m_human" id="img2">
+                    <img
+                        src="{{ $IMG_PATH }}/img/_redesign/landings/robots/human/human.svg"
+                        class="robot_slider_img_obj"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="robot_shadow"></div>
+    <div class="robot_logo">
+        <a href="/" title="Superjob">
+            <img src="{{ $IMG_PATH }}/img/_redesign/svg/newmainlogo_white.svg" class="robot_logo_img" alt="Superjob">
+        </a>
+    </div>
+    <div class="robot_center">
+        <h1 class="robot_center_h1"><span>Робот заберёт</span> <span>вашу профессию?</span></h1>
+        <h3 class="robot_center_h3" ng-class="{'m_sharing': sharingShow}">
+            <span>Этот супер-тест покажет,</span>
+            <span>как быстро робот займёт ваше место</span>
+        </h3>
+        <div class="robot_center_button_list" ng-show="!sharingShow">
+            <a href="{{ next_page }}" class="robot_center_button m_test">Пройти тест</a>
+            <a href="" class="robot_center_button m_sharing" ng-click="sharingShow=!sharingShow">Предупредить друзей</a>
+        </div>
+        <div class="robot_center_sharing" ng-show="sharingShow" ng-cloak>
+            <a class="robot_center_sharing_close" ng-click="sharingShow=!sharingShow"></a>
+            <div class="robot_center_sharing_text">
+                Опередим роботов? Расскажите людям о роботоугрозе! Репост!
+            </div>
+            <div class="robot_center_sharing_counters">{{ sharing }}</div>
+        </div>
+    </div>
+    <div class="robot_running">
+        <div class="robot_running_urgent"></div>
+        <div class="robot_running_urgent_text">СРОЧНО</div>
+        <ul class="robot_running_line">
+            <li>Amazon запустил магазин без продавцов и кассиров</li>
+            <li>В Швеции открылся мини-маркет без касс</li>
+            <li>Google запускает беспилотное такси</li>
+            <li>В Сан-Франциско работает первый ресторан без официантов</li>
+            <li>Суперкомпьютер IBM Watson выиграл в «Своей игре»</li>
+            <li>Роботы-рабочие становятся отличной заменой ручного труда</li>
+        </ul>
+    </div>
+</div>

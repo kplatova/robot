@@ -1,0 +1,7 @@
+<div class="RobotOnMainPage_robot{{ IF user_type == 'reg_user' }} m_app{{ END }}">
+    <div class="RobotOnMainPage_robot_link{{ IF user_type == 'reg_user' }} m_app{{ END }}">
+        <a class="h_border_solid{{ IF user_type == 'guest' }} h_color_black{{ ELSEIF user_type == 'reg_user' }} h_color_white{{ END }}"
+           href="{{ current_page }}"
+        >Узнайте,</a> заменят ли вас роботы
+    </div>
+</div>
